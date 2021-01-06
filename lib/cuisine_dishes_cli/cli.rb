@@ -31,15 +31,17 @@ class CLI
  
     def select_cuisine
        puts "Select a cuisine style to see some inspirational dishes."
-       menu
+       selection = user_input
+       puts "#{selection}"
+       #Dish.find_dishes(selection)
     end  
        
     
-    def dishes_list
-       Dish.all.each.with_index(1)do |title, i|
-       puts "#{i}. #{dish.title}" 
-    end  
-    end 
+    # def dishes_list
+    #    Dish.all.each.with_index(1)do |title, i|
+    #    puts "#{i}. #{dish.title}" 
+    # end  
+    #end 
    
  
     def menu

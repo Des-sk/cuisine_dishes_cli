@@ -46,7 +46,11 @@ class Dish
        
     # end
 
-    
+    def self.find_dishes(dishes_cuisine)
+        self.all.select do |dishes|
+            dishes.cuisine == dishes_cuisine
+        end
+    end
 
 
 
