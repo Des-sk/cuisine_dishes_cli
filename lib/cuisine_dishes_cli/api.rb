@@ -20,12 +20,24 @@ class API
         })
         dishes_array = JSON.parse(response)["results"]
         dishes_array .each do |dish|
-            Dish.new(dish)
-
-        
+            dish.each do |k, v|
+                self.send("#{k}=", v) if self.respond_to?("#{k}=")
+                Dish.new(dishes_array)
+                end
+            end
             binding.pry
-        end
     end
+    
+        #Dish.new(cuisine, title)
+
+        #def initialize(dish_hash)
+            #     dish_hash.each do |k, v|
+            #         self.send("#{k}=", v) if self.respond_to?("#{k}=")
+            #     end
+            #     save
+            
+        #end
+    
 
         
     def self.cuisines_name

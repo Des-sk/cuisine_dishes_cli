@@ -17,8 +17,7 @@ class CLI
        Cuisine.all.each.with_index(1)do |cuisine, i|
        puts "#{i}. #{cuisine.name}"
        end
-       select_cuisine
-       
+       select_cuisine 
     end
  
     def goodbye
@@ -37,18 +36,21 @@ class CLI
        
     
     def dishes_list
-       Dish.all
-       
+       Dish.all.each.with_index(1)do |title, i|
+       puts "#{i}. #{dish.title}" 
+    end  
     end 
    
  
     def menu
        selection = user_input 
  
-       if selection == "#{cuisine.name}"
-          dishes_list
+    #    if selection == Cuisine.all
+       
+    #       dishes_list
+    #    end
  
-       elsif selection == "Cuisines"
+       if selection == "Cuisines"
           cuisines_list
           menu
  
@@ -61,8 +63,6 @@ class CLI
        end
       
     end
- end
- 
- 
+end
  
  
