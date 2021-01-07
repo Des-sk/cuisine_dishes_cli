@@ -13,18 +13,19 @@ class API
     def self.get_data
     domain = "https://api.spoonacular.com"
     base_path = "/recipes/complexSearch"
-    api_key = "ebd49d55da6c4a0f9e6a5098a077595b"
+    api_key = " "
+    cuisine = "cuisines_name"
     results_size = 10
-    response = RestClient.get("#{domain}#{base_path}?apiKey=#{api_key}&cuisines_name=#{cuisines_name}&number=#{results_size}", {
+    response = RestClient.get("#{domain}#{base_path}?apiKey=#{api_key}&cuisine=#{cuisines_name}&number=#{results_size}", {
             headers: {"Content-Type" => "application/json"},
         })
-        dishes_array = JSON.parse(response)["results"]
+        dishes_array = JSON.parse(response)
         dishes_array .each do |dish|
-            dish.each do |k, v|
-                self.send("#{k}=", v) if self.respond_to?("#{k}=")
+            # dish.each do |k, v|
+            #     self.send("#{k}=", v) if self.respond_to?("#{k}=")
                 Dish.new(dishes_array)
                 end
-            end
+            #end
             #binding.pry
     end
     

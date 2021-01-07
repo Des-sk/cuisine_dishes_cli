@@ -32,8 +32,8 @@ class CLI
     def select_cuisine
        puts "Select a cuisine style to see some inspirational dishes."
        selection = user_input
-       puts "#{selection}"
-       #Dish.find_dishes(selection)
+       #puts "#{selection}"
+       Dish.find_dishes(selection)
     end  
        
     
