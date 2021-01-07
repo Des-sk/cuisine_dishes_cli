@@ -10,20 +10,21 @@ class API
     #     binding.pry
     # end
 
-    def self.get_data
+    def self.get_data(selection)
     domain = "https://api.spoonacular.com"
     base_path = "/recipes/complexSearch"
-    api_key = " "
-    cuisine = "cuisines_name"
+    api_key = "ebd49d55da6c4a0f9e6a5098a077595b"
+   
     results_size = 10
-    response = RestClient.get("#{domain}#{base_path}?apiKey=#{api_key}&cuisine=#{cuisines_name}&number=#{results_size}", {
+    response = RestClient.get("#{domain}#{base_path}?apiKey=#{api_key}&cuisine=#{selection}&number=#{results_size}", {
             headers: {"Content-Type" => "application/json"},
         })
-        dishes_array = JSON.parse(response)
+        dishes_array = JSON.parse(response)["results"]
+        #binding.pry
         dishes_array .each do |dish|
             # dish.each do |k, v|
             #     self.send("#{k}=", v) if self.respond_to?("#{k}=")
-                Dish.new(dishes_array)
+                Dish.new(dish)
                 end
             #end
             #binding.pry
@@ -41,12 +42,7 @@ class API
     
 
         
-    def self.cuisines_name
-        cuisines_name = ["african", "american", "british", "cajun", "caribbean", "chinese", "eastern european", "european", "french", "german", "greek", "indian", "irish", "italian", "japanese", "jewish", "korean", "latin american", "mediterranean", "mexican", "middle eastern", "nordic", "southern", "spanish", "thai", "vietnamese"]
-        cuisines_name .each do |cuisine|
-            Cuisine.new(cuisine)
-        end
-    end
+    
 
     # def get_dishes
     #     if response["status"] == 'failure'

@@ -3,10 +3,10 @@ class CLI
     def start
        puts "Hi, and welcome to the Cuisine Inspo cli!"
        puts "Input Cuisines to see a list of cuisine styles from around de world or exit to leave."
-       API.get_data
-       #binding.pry
+       Cuisine.cuisines_name
+       
        menu
-     #binding.pry
+    
     end
  
     def user_input
@@ -30,41 +30,42 @@ class CLI
  
  
     def select_cuisine
-       puts "Select a cuisine style to see some inspirational dishes."
-       selection = user_input
-       #puts "#{selection}"
-       Dish.find_dishes(selection)
-    end  
+        puts "Input a Cuisine name to se a list of inspirational dishes"
+    selection = user_input
        
+       API.get_data(selection)
+       dishes_list
+       menu
+    end
+ 
+       
+    def dishes_list
+        Dish.all.each do |dish|
+        puts "#{dish.title}"
+        end
+    end
     
-    # def dishes_list
-    #    Dish.all.each.with_index(1)do |title, i|
-    #    puts "#{i}. #{dish.title}" 
-    # end  
-    #end 
-   
+    
  
     def menu
-       selection = user_input 
+       selection = user_input
+
+
+        if selection == "Cuisines"
+            cuisines_list
+            menu
  
-    #    if selection == Cuisine.all
-       
-    #       dishes_list
-    #    end
  
-       if selection == "Cuisines"
-          cuisines_list
-          menu
+        elsif selection == "exit"
+            goodbye
  
-       elsif selection == "exit"
-          goodbye
- 
-       else
-          error
-          menu
-       end
-      
+        else
+            error
+            menu
+        end
     end
+      
+
 end
  
  
