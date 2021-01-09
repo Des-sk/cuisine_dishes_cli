@@ -1,6 +1,5 @@
 class Cuisine
    
-    #@@cuisines_name = ["african", "american", "british", "cajun", "caribbean", "chinese", "eastern european", "european", "french", "german", "greek", "indian", "irish", "italian", "japanese", "jewish", "korean", "latin american", "mediterranean", "mexican", "middle eastern", "nordic", "southern", "spanish", "thai", "vietnamese"]
 
       attr_accessor :name
 
@@ -8,7 +7,6 @@ class Cuisine
 
       def initialize (name)
         @name = name
-        #@title = title
         save
       end
 
@@ -31,15 +29,6 @@ class Cuisine
         end
     end
 
-  
-    # def dishes
-    #     Dish.all.select {|dish| dish.cuisine == self}
-    # end
-
-
- 
-
-    
 end
 
 

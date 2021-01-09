@@ -1,25 +1,12 @@
 class CLI
 
-   def start
+    def start
       puts "Hi, and welcome to the Cuisine Inspo cli!"
       puts "Input Cuisines to see a list of cuisine styles from around de world or exit to leave."
       Cuisine.cuisines_name
       menu
-    
-   end
+    end
      
-
-      #  selection = user_input
-
-      #  while selection
-      #    validate(selection)
-       #end
-    #    while user_input != "exit" && user_input !="Cuisine"
-    #     API.get_data(selection)
-    #    dishes_list
-    #    end
-       #menu
-    #end
  
     def user_input
        gets.strip
@@ -33,19 +20,17 @@ class CLI
     end
  
     def goodbye
-       puts "Get Coocking!!!"
+       puts "Get Cooking!!!"
     end
  
     def error
-       puts "Try Again"
+       puts "Cuisine not supported. See the list of supported Cuisines again:"
+        cuisines_list
     end
  
  
     def select_cuisine
         puts "Input a Cuisine name to se a list of inspirational dishes" 
-        #selection = user_input
-        #if selection == "#{selection}"
-         #select_cuisine
          get_dishes
     end
 
@@ -63,11 +48,11 @@ class CLI
         Dish.all.each do |dish|
          puts "#{dish.title}"
         end
-         puts "Would you like to see another cuisines dishes? Enter Cuisines if you do or exit if you are done"
+         puts "Would you like to see dishes from another Cuisine? Enter Cuisines if you do or exit if you're done"
          menu
       else 
          error
-         get_dishes
+         #get_dishes
       end 
     end
    
@@ -80,9 +65,9 @@ class CLI
          goodbye
       else
          error
-         menu
       end
    end
+
    
       
 
