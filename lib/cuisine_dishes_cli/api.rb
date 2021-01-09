@@ -13,7 +13,8 @@ class API
     def self.get_data(selection)
     domain = "https://api.spoonacular.com"
     base_path = "/recipes/complexSearch"
-    api_key = "ebd49d55da6c4a0f9e6a5098a077595b"
+    api_key = ENV['API_KEY']
+    binding.pry
    
     results_size = 10
     response = RestClient.get("#{domain}#{base_path}?apiKey=#{api_key}&cuisine=#{selection}&number=#{results_size}", {

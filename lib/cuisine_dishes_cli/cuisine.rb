@@ -31,6 +31,7 @@ class Cuisine
         end
     end
 
+  
     # def dishes
     #     Dish.all.select {|dish| dish.cuisine == self}
     # end
