@@ -3,10 +3,10 @@ class CLI
     def start
       puts " "
       puts " "
-      puts "Hi, and welcome to the Cuisine Inspo cli!"
+      puts "Hi, and welcome to the Cuisine Inspo Dishes CLI!"
       puts " "
       puts " "
-      puts "Input Cuisines to see a list of cuisine styles from around de world or exit to leave."
+      puts "Input Cuisines to see a list of cuisine styles from around the world or exit to leave."
       puts " "
       Cuisine.cuisines_name
       puts " "
